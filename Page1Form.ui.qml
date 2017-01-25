@@ -9,6 +9,7 @@ Item {
     property alias pm25Rec: pm25Rec
     property alias rowLayout: rowLayout
     property alias imageIndice: imageIndice
+    property alias indiceMessage: indiceMessage
 
     RowLayout {
         id:cityChange
@@ -31,22 +32,42 @@ Item {
         id: rowLayout
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.top: cityChange.bottom
-        anchors.topMargin: 40
+        anchors.topMargin: 30
 
         RowLayout
         {
+            id: mainIndice
+            antialiasing: true
+
             Rectangle {
                 id: pm25Rec
-                height: 80
-                width: 80
-                radius: 40
-                color: "#4CAF50"
+                height: 120
+                width : 120
+                radius: 60
+                color: "#9E9E9E"
+                anchors.horizontalCenter: mainIndice.horizontalCenter
+
+                Text {
+                    id: indiceType
+                    anchors.bottom: pm25Indice.top
+                    anchors.horizontalCenter: pm25Rec.horizontalCenter
+                    text: qsTr("PM2.5")
+                    color: "white"
+                }
 
                 Text {
                     id: pm25Indice
                     anchors.centerIn: parent
                     text: dataProvider.indicePM25
-                    font.pointSize: 20
+                    font.pointSize: 30
+                    color: "white"
+                }
+
+                Text {
+                    id: indiceMessage
+                    anchors.top: pm25Indice.bottom
+                    anchors.horizontalCenter: pm25Rec.horizontalCenter
+                    text: qsTr("Unhealthy")
                     color: "white"
                 }
             }
@@ -55,10 +76,9 @@ Item {
 
     Image {
         id: imageIndice
-        x: 271
         source: "qrc:/Ecology-01.png"
         anchors.top:rowLayout.bottom
-        anchors.topMargin: 21
+        anchors.topMargin: 15
         anchors.horizontalCenter: parent.horizontalCenter
     }
 
@@ -68,15 +88,24 @@ Item {
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.top: imageIndice.bottom
         anchors.topMargin: 20
-        spacing: 20
+        spacing: 10
 
         RowLayout
         {
             Rectangle {
-                height: 40
-                width: 40
-                radius: 20
+                id: pm10Rec
+                height: 60
+                width: 60
+                radius: 30
                 color: "#9E9E9E"
+
+                Text {
+                    anchors.bottom: pm10.top
+                    anchors.horizontalCenter: pm10Rec.horizontalCenter
+                    text: qsTr("PM10")
+                    font.pointSize: 10
+                    color: "white"
+                }
 
                 Text {
                     id: pm10
@@ -90,11 +119,19 @@ Item {
         RowLayout
         {
             Rectangle {
-                height: 40
-                width: 40
-                radius: 20
+                id: o3Rec
+                height: 60
+                width: 60
+                radius: 30
                 color: "#9E9E9E"
 
+                Text {
+                    anchors.bottom: o3.top
+                    anchors.horizontalCenter: o3Rec.horizontalCenter
+                    text: qsTr("O3")
+                    font.pointSize: 10
+                    color: "white"
+                }
                 Text {
                     id: o3
                     anchors.centerIn: parent
@@ -107,11 +144,19 @@ Item {
         RowLayout
         {
             Rectangle {
-                height: 40
-                width: 40
-                radius: 20
+                id: no2Rec
+                height: 60
+                width: 60
+                radius: 30
                 color: "#9E9E9E"
 
+                Text {
+                    anchors.bottom: no2.top
+                    anchors.horizontalCenter: no2Rec.horizontalCenter
+                    text: qsTr("NO2")
+                    font.pointSize: 10
+                    color: "white"
+                }
                 Text {
                     id: no2
                     anchors.centerIn: parent
@@ -124,11 +169,19 @@ Item {
         RowLayout
         {
             Rectangle {
-                height: 40
-                width: 40
-                radius: 20
+                id: so2Rec
+                height: 60
+                width: 60
+                radius: 30
                 color: "#9E9E9E"
 
+                Text {
+                    anchors.bottom: so2.top
+                    anchors.horizontalCenter: so2Rec.horizontalCenter
+                    text: qsTr("SO2")
+                    font.pointSize: 10
+                    color: "white"
+                }
                 Text {
                     id: so2
                     anchors.centerIn: parent
@@ -141,11 +194,19 @@ Item {
         RowLayout
         {
             Rectangle {
-                height: 40
-                width: 40
-                radius: 20
+                id: coRec
+                height: 60
+                width: 60
+                radius: 30
                 color: "#9E9E9E"
 
+                Text {
+                    anchors.bottom: co.top
+                    anchors.horizontalCenter: coRec.horizontalCenter
+                    text: qsTr("CO2")
+                    font.pointSize: 10
+                    color: "white"
+                }
                 Text {
                     id: co
                     anchors.centerIn: parent
@@ -169,7 +230,7 @@ Item {
         }
 
         Text {
-            text: "Paris"
+            text: dataProvider.city
             font.pointSize: 30
         }
     }

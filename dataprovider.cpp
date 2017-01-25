@@ -1,5 +1,4 @@
 #include "dataprovider.h"
-
 #include <QNetworkRequest>
 #include <QNetworkReply>
 #include <QJsonDocument>
@@ -10,14 +9,22 @@
 DataProvider::DataProvider(QObject* parent)
    : QObject(parent)
    , m_networkManager(NULL)
+   , m_indicePM25(0)
+   , m_indicePM10(0)
+   , m_indiceO3(0)
+   , m_indiceNo2(0)
+   , m_indiceSo2(0)
+   , m_indiceCo(0)
+   , m_city("Paris")
 {
     m_networkManager = new QNetworkAccessManager();
 
     /*
      * update infos when booting for
-     * the first time
+     * the first time with Paris as
+     * default city
      */
-    getPollutionInfos();
+    getPollutionInfos(m_city);
 
     QObject::connect(m_networkManager, SIGNAL(finished(QNetworkReply*)), this, SLOT(onResult(QNetworkReply*)));
 }
@@ -29,7 +36,7 @@ DataProvider::~DataProvider()
     m_networkManager = NULL;
 }
 
-void DataProvider::getPollutionInfos()
+void DataProvider::getPollutionInfos(const QString city)
 {
     /*
      * TODO :
@@ -38,7 +45,9 @@ void DataProvider::getPollutionInfos()
      */
     qDebug() << "sending request";
 
-    QUrl url("http://api.waqi.info/feed/Paris/?token=72c65a4d8065ed2f14fb5597aa643c5643ab4b07");
+    setCity(city);
+    QString req = "http://api.waqi.info/feed/" + city + "/?token=72c65a4d8065ed2f14fb5597aa643c5643ab4b07";
+    QUrl url(req);
     QNetworkRequest request(url);
     m_networkManager->get(request);
 }
@@ -99,26 +108,41 @@ void DataProvider::onResult(QNetworkReply* rep)
         QVariantMap mainMap = jsonObj.toVariantMap();
         QVariantMap dataMap = mainMap["data"].toMap();
 
-        // get the indice value of iaqi
-        QVariantMap iaqiMap   = dataMap["iaqi"].toMap();
+        // getting the map of iaqi
+        QVariantMap iaqiMap = dataMap["iaqi"].toMap();
 
-        // setting the
+        // getting the values for iaqi
         setIndicePM25((iaqiMap["pm25"].toMap())["v"].toInt());
         setIndicePM10((iaqiMap["pm10"].toMap())["v"].toInt());
         setIndiceO3((iaqiMap["o3"].toMap())["v"].toInt());
         setIndiceNo2((iaqiMap["no2"].toMap())["v"].toInt());
         setIndiceSo2((iaqiMap["so2"].toMap())["v"].toInt());
         setIndiceCo((iaqiMap["co"].toMap())["v"].toInt());
+
+        /*
+         * getting the map of city +
+         * getting the values for city
+         */
+        setCity((dataMap["city"].toMap())["name"].toString());
     }
 }
 
-int DataProvider::indicePM25() const { return m_indicePM25; }
-int DataProvider::indicePM10() const { return m_indicePM10; }
-int DataProvider::indiceO3()   const { return m_indiceO3; }
-int DataProvider::indiceNo2()  const { return m_indiceNo2; }
-int DataProvider::indiceSo2()  const { return m_indiceSo2; }
-int DataProvider::indiceCo()   const { return m_indiceCo; }
+/*
+ * bunch of indices getters
+ * for each type of indices
+ */
+int     DataProvider::indicePM25() const { return m_indicePM25; }
+int     DataProvider::indicePM10() const { return m_indicePM10; }
+int     DataProvider::indiceO3()   const { return m_indiceO3;   }
+int     DataProvider::indiceNo2()  const { return m_indiceNo2;  }
+int     DataProvider::indiceSo2()  const { return m_indiceSo2;  }
+int     DataProvider::indiceCo()   const { return m_indiceCo;   }
+QString DataProvider::city()       const { return m_city;       }
 
+/*
+ * bunch of indices setters
+ * for each type of indices
+ */
 void DataProvider::setIndicePM25(int indicePm25)
 {
     if (m_indicePM25 == indicePm25)
@@ -171,4 +195,13 @@ void DataProvider::setIndiceCo(int indiceCo)
     m_indiceCo = indiceCo;
 
     emit indiceCoChanged();
+}
+
+void DataProvider::setCity(const QString city)
+{
+    if (m_city == city)
+        return;
+    m_city = city;
+
+    emit cityChanged();
 }

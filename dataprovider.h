@@ -14,19 +14,21 @@ class DataProvider : public QObject
     Q_PROPERTY(int indiceNo2  READ indiceNo2  WRITE setIndiceNo2  NOTIFY indiceNo2Changed)
     Q_PROPERTY(int indiceSo2  READ indiceSo2  WRITE setIndiceSo2  NOTIFY indiceSo2Changed)
     Q_PROPERTY(int indiceCo   READ indiceCo   WRITE setIndiceCo   NOTIFY indiceCoChanged)
+    Q_PROPERTY(QString city   READ city       WRITE setCity       NOTIFY cityChanged)
 
 public:
     explicit DataProvider(QObject *parent = 0);
    ~DataProvider();
 
-    Q_INVOKABLE void getPollutionInfos();
+    Q_INVOKABLE void getPollutionInfos(const QString);
 
     int indicePM25() const;
     int indicePM10() const;
-    int indiceO3() const;
-    int indiceNo2() const;
-    int indiceSo2() const;
-    int indiceCo() const;
+    int indiceO3()   const;
+    int indiceNo2()  const;
+    int indiceSo2()  const;
+    int indiceCo()   const;
+    QString city()   const;
 
     void setIndicePM25(int);
     void setIndicePM10(int);
@@ -34,6 +36,7 @@ public:
     void setIndiceNo2(int);
     void setIndiceSo2(int);
     void setIndiceCo(int);
+    void setCity(const QString);
 
 signals:
     void indicePM25Changed();
@@ -42,6 +45,7 @@ signals:
     void indiceNo2Changed();
     void indiceSo2Changed();
     void indiceCoChanged();
+    void cityChanged();
 
 public slots:
     void onResult(QNetworkReply* rep);
@@ -55,6 +59,7 @@ private:
     int m_indiceNo2;
     int m_indiceSo2;
     int m_indiceCo;
+    QString m_city;
 };
 
 #endif // DATAPROVIDER_H

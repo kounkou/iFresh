@@ -19,8 +19,7 @@ ApplicationWindow {
         anchors.fill: parent
         currentIndex: tabBar.currentIndex
 
-        DataProvider
-        {
+        DataProvider {
             id: dataProvider
         }
 
@@ -59,7 +58,7 @@ ApplicationWindow {
                    }
                }
 
-               property variant locationOslo: QtPositioning.coordinate( 59.93, 10.76)
+               property variant locationOslo: QtPositioning.coordinate(48.856614, 2.3522219)
 
                PlaceSearchModel {
                    id: searchModel
