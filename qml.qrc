@@ -1,6 +1,15 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
-        <file>MainForm.ui.qml</file>
+        <file>Page1.qml</file>
+        <file>Page1Form.ui.qml</file>
+        <file>qtquickcontrols2.conf</file>
+        <file>marker.png</file>
+        <file>Ecology-1.png</file>
+        <file>Ecology-2.png</file>
+        <file>Ecology-3.png</file>
+        <file>Ecology-4.png</file>
+        <file>Ecology-5.png</file>
+        <file>Ecology-6.png</file>
     </qresource>
 </RCC>
