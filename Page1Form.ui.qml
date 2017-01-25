@@ -76,7 +76,7 @@ Item {
 
     Image {
         id: imageIndice
-        source: "qrc:/Ecology-01.png"
+        source: "qrc:/images/Ecology-01.png"
         anchors.top:rowLayout.bottom
         anchors.topMargin: 15
         anchors.horizontalCenter: parent.horizontalCenter
@@ -226,7 +226,7 @@ Item {
 
         Image {
             id: place
-            source: "qrc:/marker.png"
+            source: "qrc:/images/marker.png"
         }
 
         Text {

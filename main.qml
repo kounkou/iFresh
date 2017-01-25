@@ -87,7 +87,7 @@ ApplicationWindow {
                            anchorPoint.y: image.height
 
                            sourceItem: Column {
-                               Image { id: image; source: "marker.png" }
+                               Image { id: image; source: "qrc:/images/marker.png" }
                                Text  { text: title; font.bold: true }
                            }
                        }
