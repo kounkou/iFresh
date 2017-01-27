@@ -48,7 +48,7 @@ signals:
     void cityChanged();
 
 public slots:
-    void onResult(QNetworkReply* rep);
+    bool onResult(QNetworkReply* rep);
 
 private:
     QNetworkAccessManager* m_networkManager;

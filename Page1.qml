@@ -1,4 +1,6 @@
 import QtQuick 2.7
+import QtQuick.Controls 2.0
+import QtQuick.Layouts 1.0
 
 Page1Form {
 
@@ -8,6 +10,40 @@ Page1Form {
         repeat: true
         onTriggered: dataProvider.getPollutionInfos(dataProvider.city)
     }
+
+    /*
+    Popup {
+
+        id: popup
+        x: window.width - 2*window.width/3 - window.width/6
+        y: window.height - 2*window.height/3 - window.width/6
+        width: 2*window.width/3
+        height: 2*window.height/3
+
+        modal: true
+        focus: true
+
+        ColumnLayout {
+
+            anchors.centerIn: parent
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.topMargin: 20
+
+            Image {
+
+                id: aqicnImage
+                source: "qrc:/aqicn.png"
+            }
+            Text {
+                id: aqicn
+                anchors.top: aqicnImage.bottom
+                text: qsTr("You can find more information on PM2.5, also called fine particulates at http://aqicn.org/home/")
+            }
+        }
+
+        closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
+    }
+    */
 
     button1.onClicked: {
         dataProvider.getPollutionInfos(textField1.text)
@@ -46,5 +82,9 @@ Page1Form {
             imageIndice.source = "qrc:/images/Ecology-6.png"
             indiceMessage.text = "Hazardous"
         }
+    }
+
+    pm25ClickableArea.onClicked : {
+        // popup.open()
     }
 }

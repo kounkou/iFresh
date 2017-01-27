@@ -45,7 +45,6 @@ void DataProvider::getPollutionInfos(const QString city)
      */
     qDebug() << "sending request";
 
-    setCity(city);
     QString req = "http://api.waqi.info/feed/" + city + "/?token=72c65a4d8065ed2f14fb5597aa643c5643ab4b07";
     QUrl url(req);
     QNetworkRequest request(url);
@@ -81,14 +80,14 @@ void DataProvider::getPollutionInfos(const QString city)
      }
   }"
 */
-void DataProvider::onResult(QNetworkReply* rep)
+bool DataProvider::onResult(QNetworkReply* rep)
 {
     qDebug() << "received response";
 
     if (rep->error() != QNetworkReply::NoError)
     {
         qDebug() << "Error when reading the data";
-        return;
+        return false;
     }
 
     QString data = (QString)rep->readAll();
@@ -98,12 +97,18 @@ void DataProvider::onResult(QNetworkReply* rep)
     if (doc.isNull())
     {
         qDebug() << "Invalid json document";
-        return;
+        return false;
     }
     else if (doc.isObject())
     {
         QJsonObject jsonObj = doc.object();
         qDebug() << "status : " << jsonObj.value(QString("status"));
+
+        if (jsonObj.value(QString("status")) != "ok")
+        {
+            qDebug() << "couldn't find stations";
+            return false;
+        }
 
         QVariantMap mainMap = jsonObj.toVariantMap();
         QVariantMap dataMap = mainMap["data"].toMap();
@@ -125,6 +130,8 @@ void DataProvider::onResult(QNetworkReply* rep)
          */
         setCity((dataMap["city"].toMap())["name"].toString());
     }
+
+    return true;
 }
 
 /*

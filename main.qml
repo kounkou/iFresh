@@ -1,6 +1,5 @@
 import QtQuick.Controls 2.0
 import QtQuick.Layouts 1.0
-
 import QtQuick 2.7
 import QtPositioning 5.5
 import QtLocation 5.6
@@ -9,6 +8,7 @@ import QtWebView 1.0
 import panorama.Aqicn.DataProvider 1.0
 
 ApplicationWindow {
+    id: window
     visible: true
     width: 640
     height: 480
@@ -29,9 +29,10 @@ ApplicationWindow {
         /*
          * This page will own the map.
          * The map gives accurate information
-         * on the area of interest.
+         * on the pollution sensors
          */
         Page {
+
             Rectangle {
                width: parent.width
                height: parent.height
@@ -65,7 +66,7 @@ ApplicationWindow {
 
                    plugin: myPlugin
 
-                   searchTerm: mapSearch
+                   searchTerm: "Airparif"
                    searchArea: QtPositioning.circle(locationOslo)
 
                    Component.onCompleted: update()
@@ -109,10 +110,10 @@ ApplicationWindow {
         id: tabBar
         currentIndex: swipeView.currentIndex
         TabButton {
-            text: qsTr("Recherche")
+            text: qsTr("Search")
         }
         TabButton {
-            text: qsTr("Carte")
+            text: qsTr("Map")
         }
     }
 }

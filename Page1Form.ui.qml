@@ -10,6 +10,7 @@ Item {
     property alias rowLayout: rowLayout
     property alias imageIndice: imageIndice
     property alias indiceMessage: indiceMessage
+    property alias pm25ClickableArea: pm25ClickableArea
 
     RowLayout {
         id:cityChange
@@ -19,12 +20,14 @@ Item {
 
         TextField {
             id: textField1
-            placeholderText: qsTr("Ville")
+            anchors.verticalCenter: parent.verticalCenter
+            placeholderText: qsTr("City")
         }
 
         Button {
             id: button1
-            text: qsTr("Recherche")
+            anchors.verticalCenter: parent.verticalCenter
+            text: qsTr("Search")
         }
     }
 
@@ -69,6 +72,11 @@ Item {
                     anchors.horizontalCenter: pm25Rec.horizontalCenter
                     text: qsTr("Unhealthy")
                     color: "white"
+                }
+
+                MouseArea {
+                    id: pm25ClickableArea
+                    anchors.fill: parent
                 }
             }
         }
