@@ -5,12 +5,13 @@
         <file>Page1Form.ui.qml</file>
         <file>qtquickcontrols2.conf</file>
         <file>images/marker.png</file>
-        <file>images/Ecology-1.png</file>
-        <file>images/Ecology-2.png</file>
-        <file>images/Ecology-3.png</file>
-        <file>images/Ecology-4.png</file>
-        <file>images/Ecology-5.png</file>
-        <file>images/Ecology-6.png</file>
+        <file>images/Ecology-1.svg</file>
+        <file>images/Ecology-2.svg</file>
+        <file>images/Ecology-3.svg</file>
+        <file>images/Ecology-4.svg</file>
+        <file>images/Ecology-5.svg</file>
+        <file>images/Ecology-6.svg</file>
         <file>images/aqicn.png</file>
+        <file>images/qt.png</file>
     </qresource>
 </RCC>

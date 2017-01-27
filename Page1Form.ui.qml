@@ -111,7 +111,7 @@ Item {
                     anchors.bottom: pm10.top
                     anchors.horizontalCenter: pm10Rec.horizontalCenter
                     text: qsTr("PM10")
-                    font.pointSize: 10
+                    font.pointSize: 13
                     color: "white"
                 }
 
@@ -136,8 +136,9 @@ Item {
                 Text {
                     anchors.bottom: o3.top
                     anchors.horizontalCenter: o3Rec.horizontalCenter
-                    text: qsTr("O3")
-                    font.pointSize: 10
+                    textFormat: Text.RichText
+                    text: qsTr("O<SUB>3</SUB>")
+                    font.pointSize: 13
                     color: "white"
                 }
                 Text {
@@ -161,8 +162,9 @@ Item {
                 Text {
                     anchors.bottom: no2.top
                     anchors.horizontalCenter: no2Rec.horizontalCenter
-                    text: qsTr("NO2")
-                    font.pointSize: 10
+                    textFormat: Text.RichText
+                    text: qsTr("NO<SUB>2</SUB>")
+                    font.pointSize: 13
                     color: "white"
                 }
                 Text {
@@ -186,8 +188,9 @@ Item {
                 Text {
                     anchors.bottom: so2.top
                     anchors.horizontalCenter: so2Rec.horizontalCenter
-                    text: qsTr("SO2")
-                    font.pointSize: 10
+                    textFormat: Text.RichText
+                    text: qsTr("SO<SUB>2</SUB>")
+                    font.pointSize: 13
                     color: "white"
                 }
                 Text {
@@ -211,8 +214,9 @@ Item {
                 Text {
                     anchors.bottom: co.top
                     anchors.horizontalCenter: coRec.horizontalCenter
-                    text: qsTr("CO2")
-                    font.pointSize: 10
+                    textFormat: Text.RichText
+                    text: qsTr("CO<SUB>2</SUB>")
+                    font.pointSize: 13
                     color: "white"
                 }
                 Text {

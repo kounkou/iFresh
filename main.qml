@@ -4,7 +4,7 @@ import QtQuick 2.7
 import QtPositioning 5.5
 import QtLocation 5.6
 import QtWebView 1.0
-
+import QtQuick.Controls.Material 2.0
 import panorama.Aqicn.DataProvider 1.0
 
 ApplicationWindow {
@@ -32,76 +32,66 @@ ApplicationWindow {
          * on the pollution sensors
          */
         Page {
+            Pane {
+                id: cardInfosProvider
+                width: parent.width - 10
+                height: parent.height/2 - 5
+                anchors.topMargin: 5
+                anchors.horizontalCenter: parent.horizontalCenter
+                Material.elevation: 2
 
-            Rectangle {
-               width: parent.width
-               height: parent.height
+                Image {
+                    id: aqicnImage
+                    anchors.top: parent.top
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.topMargin: 10
+                    source: "qrc:/images/aqicn.png"
+                }
 
-               Plugin {
-                   id: myPlugin
-                   name: "osm"
-               }
+                Label {
+                    width: parent.width - 10
+                    anchors.top: aqicnImage.bottom
+                    anchors.topMargin: 10
+                    anchors.leftMargin: 5
+                    textFormat: Text.RichText
+                    wrapMode: Text.WordWrap
+                    text: qsTr("The World Air Quality Index project is a social enterprise project started in 2007.
+                                Its mission is to promote Air Pollution awareness and provide a unified Air Quality
+                                information for the whole world.
+                                The project is proving a transparent Air Quality information for more than 70 countries,
+                                covering more than 9000 stations in 600 major cities, via those two websites:
+                                <a href=\"aqicn.org\">aqicn.org</a> and <a href=\"waqi.info\">waqi.info</a>. ")
+                }
+            }
 
-               PositionSource {
-                   id: positionSource
-                   property variant lastSearchPosition: locationOslo
-                   active: true
-                   updateInterval: 300000 // 5 mins
-                   onPositionChanged:  {
-                       var currentPosition = positionSource.position.coordinate
-                       map.center = currentPosition
-                       var distance = currentPosition.distanceTo(lastSearchPosition)
-                       if (distance > 500) {
-                           lastSearchPosition = currentPosition
-                           searchModel.searchArea = QtPositioning.circle(currentPosition)
-                           searchModel.update()
-                       }
-                   }
-               }
+            Pane {
+                width: parent.width - 10
+                height: parent.height/2 - 5
+                anchors.horizontalCenter: parent.horizontalCenter
+                anchors.top: cardInfosProvider.bottom
+                anchors.topMargin: 5
+                Material.elevation: 2
 
-               property variant locationOslo: QtPositioning.coordinate(48.856614, 2.3522219)
+                Image {
+                    id: qtImage
+                    anchors.top: parent.top
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.topMargin: 10
+                    source: "qrc:/images/qt.png"
+                }
 
-               PlaceSearchModel {
-                   id: searchModel
-
-                   plugin: myPlugin
-
-                   searchTerm: "Airparif"
-                   searchArea: QtPositioning.circle(locationOslo)
-
-                   Component.onCompleted: update()
-               }
-
-               Map {
-                   id: map
-                   anchors.fill: parent
-                   plugin: myPlugin;
-                   center: locationOslo
-                   zoomLevel: 13
-
-                   MapItemView {
-                       model: searchModel
-                       delegate: MapQuickItem {
-                           coordinate: place.location.coordinate
-
-                           anchorPoint.x: image.width * 0.5
-                           anchorPoint.y: image.height
-
-                           sourceItem: Column {
-                               Image { id: image; source: "qrc:/images/marker.png" }
-                               Text  { text: title; font.bold: true }
-                           }
-                       }
-                   }
-               }
-
-               Connections {
-                   target: searchModel
-                   onStatusChanged: {
-                       if (searchModel.status == PlaceSearchModel.Error)
-                           console.log(searchModel.errorString());
-                   }
-               }
+                Label {
+                    width: parent.width - 10
+                    anchors.top: qtImage.bottom
+                    anchors.topMargin: 10
+                    anchors.leftMargin: 5
+                    textFormat: Text.RichText
+                    wrapMode: Text.WordWrap
+                    text: qsTr("Thanks for design reviews to : <br><br><b>* Claudia Emmanuelle <br>* Silaho Armelle </b><br><br>
+                                Qt is a cross-platform application development framework for desktop, embedded and mobile.
+                                Supported Platforms include Linux, OS X, Windows, VxWorks, QNX, Android, iOS, BlackBerry,
+                                Sailfish OS and others.")
+                }
             }
         }
     }
@@ -113,7 +103,7 @@ ApplicationWindow {
             text: qsTr("Search")
         }
         TabButton {
-            text: qsTr("Map")
+            text: qsTr("About")
         }
     }
 }

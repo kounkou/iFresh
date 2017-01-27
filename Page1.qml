@@ -2,6 +2,10 @@ import QtQuick 2.7
 import QtQuick.Controls 2.0
 import QtQuick.Layouts 1.0
 
+import QtPositioning 5.5
+import QtLocation 5.6
+import QtWebView 1.0
+
 Page1Form {
 
     Timer {
@@ -23,21 +27,15 @@ Page1Form {
         modal: true
         focus: true
 
-        ColumnLayout {
+        Pane {
+            width: parent.width
+            height: parent.height
 
-            anchors.centerIn: parent
-            anchors.horizontalCenter: parent.horizontalCenter
-            anchors.topMargin: 20
+            Material.elevation: 6
 
-            Image {
-
-                id: aqicnImage
-                source: "qrc:/aqicn.png"
-            }
-            Text {
-                id: aqicn
-                anchors.top: aqicnImage.bottom
-                text: qsTr("You can find more information on PM2.5, also called fine particulates at http://aqicn.org/home/")
+            Label {
+                text: qsTr("I'm a card!")
+                anchors.centerIn: parent
             }
         }
 
@@ -53,33 +51,33 @@ Page1Form {
     pm25Indice.onTextChanged: {
         if (dataProvider.indicePM25 <= 50) {
             pm25Rec.color = "#4CAF50"
-            imageIndice.source = "qrc:/images/Ecology-1.png"
+            imageIndice.source = "qrc:/images/Ecology-1.svg"
             indiceMessage.text = "Good"
         }
         else if (dataProvider.indicePM25 > 50 && dataProvider.indicePM25 <= 100) {
             pm25Rec.color = "#FFC107"
-            imageIndice.source = "qrc:/images/Ecology-2.png"
+            imageIndice.source = "qrc:/images/Ecology-2.svg"
             indiceMessage.text = "Moderate"
         }
         else if (dataProvider.indicePM25 > 100 && dataProvider.indicePM25 <= 150) {
             pm25Rec.color = "#FF5722"
-            imageIndice.source = "qrc:/images/Ecology-3.png"
+            imageIndice.source = "qrc:/images/Ecology-3.svg"
             indiceMessage.text = "Unhealthy"
         }
         else if (dataProvider.indicePM25 > 150 && dataProvider.indicePM25 <= 200) {
             pm25Rec.color = "#F44336"
-            imageIndice.source = "qrc:/images/Ecology-4.png"
+            imageIndice.source = "qrc:/images/Ecology-4.svg"
             indiceMessage.text = "Unhealthy"
         }
         else if (dataProvider.indicePM25 > 200 && dataProvider.indicePM25 <= 250) {
             pm25Rec.color = "#673AB7"
-            imageIndice.source = "qrc:/images/Ecology-5.png"
+            imageIndice.source = "qrc:/images/Ecology-5.svg"
             indiceMessage.text = "Unhealthy"
         }
         else
         {
             pm25Rec.color = "#E91E63"
-            imageIndice.source = "qrc:/images/Ecology-6.png"
+            imageIndice.source = "qrc:/images/Ecology-6.svg"
             indiceMessage.text = "Hazardous"
         }
     }
