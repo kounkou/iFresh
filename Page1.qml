@@ -44,7 +44,10 @@ Page1Form {
     */
 
     button1.onClicked: {
+        button1.enabled = false
         dataProvider.getPollutionInfos(textField1.text)
+        textField1.text = ""
+        button1.enabled = true
         console.log("Button Pressed. Entered text: " + textField1.text);
     }
 
