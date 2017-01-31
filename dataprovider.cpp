@@ -85,7 +85,7 @@ void DataProvider::getPollutionInfos(const QString city)
      */
     qDebug() << "sending request";
 
-    QString req = "http://api.waqi.info/feed/" + city + "/?token=72c65a4d8065ed2f14fb5597aa643c5643ab4b07";
+    QString req = "http://api.waqi.info/feed/" + city + "/?token=[TOKEN KEY]";
     QUrl url(req);
     QNetworkRequest request(url);
     m_networkManager->get(request);
