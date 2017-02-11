@@ -40,5 +40,8 @@ DISTFILES += \
     android/build.gradle \
     android/gradle/wrapper/gradle-wrapper.properties \
     android/gradlew.bat \
+    tests/CMakeLists.txt \
+    tests/Main_TestAll.cpp \
+    tests/DataProvider_Test.cpp
 
 ANDROID_PACKAGE_SOURCE_DIR = $$PWD/android
