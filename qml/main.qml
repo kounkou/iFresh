@@ -85,7 +85,7 @@ ApplicationWindow {
                     anchors.top: parent.top
                     anchors.horizontalCenter: parent.horizontalCenter
                     anchors.topMargin: 10
-                    source: "qrc:/images/aqicn.png"
+                    source: "qrc:/aqicn.png"
                 }
 
                 Label {
@@ -117,7 +117,7 @@ ApplicationWindow {
                     anchors.top: parent.top
                     anchors.horizontalCenter: parent.horizontalCenter
                     anchors.topMargin: 10
-                    source: "qrc:/images/qt.png"
+                    source: "qrc:/qt.png"
                 }
 
                 Label {

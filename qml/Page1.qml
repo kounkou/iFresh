@@ -93,33 +93,33 @@ Page1Form {
     pm25Indice.onTextChanged: {
         if (dataProvider.indicePM25 <= 50) {
             pm25Rec.color = "#4CAF50"
-            imageIndice.source = "qrc:/images/Ecology-1.svg"
+            imageIndice.source = "qrc:/Ecology-1.svg"
             indiceMessage.text = "Good"
         }
         else if (dataProvider.indicePM25 > 50 && dataProvider.indicePM25 <= 100) {
             pm25Rec.color = "#FFC107"
-            imageIndice.source = "qrc:/images/Ecology-2.svg"
+            imageIndice.source = "qrc:/Ecology-2.svg"
             indiceMessage.text = "Moderate"
         }
         else if (dataProvider.indicePM25 > 100 && dataProvider.indicePM25 <= 150) {
             pm25Rec.color = "#FF5722"
-            imageIndice.source = "qrc:/images/Ecology-3.svg"
+            imageIndice.source = "qrc:/Ecology-3.svg"
             indiceMessage.text = "Unhealthy"
         }
         else if (dataProvider.indicePM25 > 150 && dataProvider.indicePM25 <= 200) {
             pm25Rec.color = "#F44336"
-            imageIndice.source = "qrc:/images/Ecology-4.svg"
+            imageIndice.source = "qrc:/Ecology-4.svg"
             indiceMessage.text = "Unhealthy"
         }
         else if (dataProvider.indicePM25 > 200 && dataProvider.indicePM25 <= 250) {
             pm25Rec.color = "#673AB7"
-            imageIndice.source = "qrc:/images/Ecology-5.svg"
+            imageIndice.source = "qrc:/Ecology-5.svg"
             indiceMessage.text = "Unhealthy"
         }
         else
         {
             pm25Rec.color = "#E91E63"
-            imageIndice.source = "qrc:/images/Ecology-6.svg"
+            imageIndice.source = "qrc:/Ecology-6.svg"
             indiceMessage.text = "Hazardous"
         }
     }

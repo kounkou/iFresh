@@ -278,7 +278,7 @@ Item {
 
         Image {
             id: place
-            source: "qrc:/images/marker.png"
+            source: "qrc:/marker.png"
         }
 
         Text {

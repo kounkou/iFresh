@@ -2,13 +2,15 @@ QT += qml quick network svg
 
 CONFIG += c++11
 
-SOURCES += main.cpp \
-    dataprovider.cpp
+SOURCES += src/main.cpp \
+           src/dataprovider.cpp
 
-RESOURCES += qml.qrc
+RESOURCES += qml/qml.qrc
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
 QML_IMPORT_PATH =
+
+INCLUDEPATH += hdr/
 
 # INCLUDEPATH += /usr/include/
 # LIBS += -lgtest -L/usr/lib/
@@ -32,8 +34,7 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
-HEADERS += \
-    dataprovider.h
+HEADERS += hdr/dataprovider.h
 
 DISTFILES += \
     android/AndroidManifest.xml \

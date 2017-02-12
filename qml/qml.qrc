@@ -1,0 +1,17 @@
+<RCC>
+    <qresource prefix="/">
+        <file alias="main.qml">main.qml</file>
+        <file alias="Page1.qml">Page1.qml</file>
+        <file alias="Page1Form.ui.qml">Page1Form.ui.qml</file>
+        <file alias="qtquickcontrols2.conf">../conf/qtquickcontrols2.conf</file>
+        <file alias="marker.png">../images/marker.png</file>
+        <file alias="Ecology-1.svg">../images/Ecology-1.svg</file>
+        <file alias="Ecology-2.svg">../images/Ecology-2.svg</file>
+        <file alias="Ecology-3.svg">../images/Ecology-3.svg</file>
+        <file alias="Ecology-4.svg">../images/Ecology-4.svg</file>
+        <file alias="Ecology-5.svg">../images/Ecology-5.svg</file>
+        <file alias="Ecology-6.svg">../images/Ecology-6.svg</file>
+        <file alias="aqicn.png">../images/aqicn.png</file>
+        <file alias="qt.png">../images/qt.png</file>
+    </qresource>
+</RCC>
