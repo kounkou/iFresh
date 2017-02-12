@@ -1,4 +1,4 @@
-QT += qml quick webview network svg
+QT += qml quick network svg
 
 CONFIG += c++11
 
@@ -9,6 +9,9 @@ RESOURCES += qml.qrc
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
 QML_IMPORT_PATH =
+
+# INCLUDEPATH += /usr/include/
+# LIBS += -lgtest -L/usr/lib/
 
 # Additional import path used to resolve QML modules just for Qt Quick Designer
 QML_DESIGNER_IMPORT_PATH =
@@ -39,9 +42,6 @@ DISTFILES += \
     android/res/values/libs.xml \
     android/build.gradle \
     android/gradle/wrapper/gradle-wrapper.properties \
-    android/gradlew.bat \
-    tests/CMakeLists.txt \
-    tests/Main_TestAll.cpp \
-    tests/DataProvider_Test.cpp
+    android/gradlew.bat
 
 ANDROID_PACKAGE_SOURCE_DIR = $$PWD/android

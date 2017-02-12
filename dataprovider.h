@@ -56,6 +56,8 @@ class DataProvider : public QObject
     Q_PROPERTY(int indiceCo   READ indiceCo   WRITE setIndiceCo   NOTIFY indiceCoChanged)
     Q_PROPERTY(QString city   READ city       WRITE setCity       NOTIFY cityChanged)
 
+    friend class DataProviderTest;
+
 public:
     explicit DataProvider(QObject *parent = 0);
    ~DataProvider();
