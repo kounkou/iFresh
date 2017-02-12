@@ -3,7 +3,8 @@ QT += qml quick network svg
 CONFIG += c++11
 
 SOURCES += src/main.cpp \
-           src/dataprovider.cpp
+           src/dataprovider.cpp \
+           tests/dataprovider_test.cpp
 
 RESOURCES += qml/qml.qrc
 
@@ -13,7 +14,7 @@ QML_IMPORT_PATH =
 INCLUDEPATH += hdr/
 
 # INCLUDEPATH += /usr/include/
-# LIBS += -lgtest -L/usr/lib/
+LIBS += -lgtest -L/usr/lib/
 
 # Additional import path used to resolve QML modules just for Qt Quick Designer
 QML_DESIGNER_IMPORT_PATH =

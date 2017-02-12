@@ -38,6 +38,9 @@
 **
 ****************************************************************************/
 
+
+#define  TEST
+#ifndef  TEST
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QDebug>
@@ -57,3 +60,13 @@ int main(int argc, char *argv[])
 
     return app.exec();
 }
+#else
+#include <gtest/gtest.h>
+
+int main(int argc, char *argv[])
+{
+   ::testing::InitGoogleTest(&argc, argv);
+
+   return RUN_ALL_TESTS();
+}
+#endif
