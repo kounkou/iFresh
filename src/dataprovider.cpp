@@ -63,6 +63,8 @@ DataProvider::DataProvider(QObject* parent)
      * update infos when booting for
      * the first time with Paris as
      * default city
+     *
+     * TODO : Ouch ! this is breaking SRP principle
      */
     getPollutionInfos(m_city);
 
