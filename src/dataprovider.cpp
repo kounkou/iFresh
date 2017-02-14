@@ -60,7 +60,7 @@ DataProvider::DataProvider(QObject* parent)
     // dependency injection
     m_networkManager = m_networkInterface.getNetworkManager();
 
-    // getPollutionInfos(m_city);
+    getPollutionInfos(m_city);
 
     QObject::connect(m_networkManager, SIGNAL(finished(QNetworkReply*)), this, SLOT(onResult(QNetworkReply*)));
 }
@@ -74,11 +74,6 @@ DataProvider::~DataProvider()
 
 void DataProvider::getPollutionInfos(const QString city)
 {
-    /*
-     * TODO :
-     * add parameters to method
-     * + use it in request
-     */
     qDebug() << "sending request";
 
     QString req = "http://api.waqi.info/feed/" + city + "/?token=72c65a4d8065ed2f14fb5597aa643c5643ab4b07";
