@@ -57,16 +57,10 @@ DataProvider::DataProvider(QObject* parent)
    , m_indiceCo(0)
    , m_city("Paris")
 {
-    m_networkManager = new QNetworkAccessManager();
+    // dependency injection
+    m_networkManager = m_networkInterface.getNetworkManager();
 
-    /*
-     * update infos when booting for
-     * the first time with Paris as
-     * default city
-     *
-     * TODO : Ouch ! this is breaking SRP principle
-     */
-    getPollutionInfos(m_city);
+    // getPollutionInfos(m_city);
 
     QObject::connect(m_networkManager, SIGNAL(finished(QNetworkReply*)), this, SLOT(onResult(QNetworkReply*)));
 }
@@ -87,7 +81,7 @@ void DataProvider::getPollutionInfos(const QString city)
      */
     qDebug() << "sending request";
 
-    QString req = "http://api.waqi.info/feed/" + city + "/?token=[TOKEN KEY]";
+    QString req = "http://api.waqi.info/feed/" + city + "/?token=72c65a4d8065ed2f14fb5597aa643c5643ab4b07";
     QUrl url(req);
     QNetworkRequest request(url);
     m_networkManager->get(request);

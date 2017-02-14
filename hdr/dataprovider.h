@@ -43,6 +43,7 @@
 
 #include <QNetworkAccessManager>
 #include <QObject>
+#include "ifreshnetworkmanager.h"
 
 class DataProvider : public QObject
 {
@@ -94,6 +95,7 @@ public slots:
 
 private:
     QNetworkAccessManager* m_networkManager;
+    iFreshNetworkManager   m_networkInterface;
 
     int m_indicePM25;
     int m_indicePM10;

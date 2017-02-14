@@ -39,3 +39,4 @@ TEST_F(DataProvider_Test, canSetIndicePM25)
     dataProvider->setIndicePM25(25);
     EXPECT_EQ(25, dataProvider->indicePM25());
 }
+
