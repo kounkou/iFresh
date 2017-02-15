@@ -57,12 +57,17 @@ DataProvider::DataProvider(QObject* parent)
    , m_indiceCo(0)
    , m_city("Paris")
 {
+    qDebug() << "In constructor";
+
     // dependency injection
     m_networkManager = m_networkInterface.getNetworkManager();
 
-    getPollutionInfos(m_city);
-
     QObject::connect(m_networkManager, SIGNAL(finished(QNetworkReply*)), this, SLOT(onResult(QNetworkReply*)));
+}
+
+void DataProvider::setNetworkManager(QNetworkAccessManager* nAccessMngr)
+{
+    m_networkManager = nAccessMngr;
 }
 
 DataProvider::~DataProvider()
@@ -72,12 +77,13 @@ DataProvider::~DataProvider()
     m_networkManager = NULL;
 }
 
-void DataProvider::getPollutionInfos(const QString city)
+/*
+ * getPollutionInfos now take a url of the request
+ * and perform a get
+ */
+void DataProvider::getPollutionInfos(const QUrl& url)
 {
     qDebug() << "sending request";
-
-    QString req = "http://api.waqi.info/feed/" + city + "/?token=[ TOKEN_ID ]";
-    QUrl url(req);
     QNetworkRequest request(url);
     m_networkManager->get(request);
 }
@@ -171,11 +177,11 @@ bool DataProvider::onResult(QNetworkReply* rep)
  */
 int     DataProvider::indicePM25() const { return m_indicePM25; }
 int     DataProvider::indicePM10() const { return m_indicePM10; }
-int     DataProvider::indiceO3()   const { return m_indiceO3;   }
-int     DataProvider::indiceNo2()  const { return m_indiceNo2;  }
-int     DataProvider::indiceSo2()  const { return m_indiceSo2;  }
-int     DataProvider::indiceCo()   const { return m_indiceCo;   }
-QString DataProvider::city()       const { return m_city;       }
+int     DataProvider::indiceO3()   const { return m_indiceO3; }
+int     DataProvider::indiceNo2()  const { return m_indiceNo2; }
+int     DataProvider::indiceSo2()  const { return m_indiceSo2; }
+int     DataProvider::indiceCo()   const { return m_indiceCo; }
+QString DataProvider::city()       const { return m_city; }
 
 /*
  * bunch of indices setters

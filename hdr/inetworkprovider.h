@@ -6,7 +6,7 @@
 class INetworkProvider
 {
 public:
-    virtual QNetworkAccessManager* getNetworkManager() = 0;
+    virtual QNetworkAccessManager* getNetworkManager()  = 0;
     virtual ~INetworkProvider() {}
 };
 

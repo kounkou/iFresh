@@ -51,7 +51,8 @@ Page1Form {
         interval: 900000 // 15 min
         running: true
         repeat: true
-        onTriggered: dataProvider.getPollutionInfos(dataProvider.city)
+        triggeredOnStart : true
+        onTriggered: dataProvider.getPollutionInfos("http://api.waqi.info/feed/" + dataProvider.city + "/?token= [ TOKEN_ID ]")
     }
 
     /*
@@ -84,7 +85,7 @@ Page1Form {
 
     button1.onClicked: {
         button1.enabled = false
-        dataProvider.getPollutionInfos(textField1.text)
+        dataProvider.getPollutionInfos("http://api.waqi.info/feed/" + textField1.text + "/?token= [ TOKEN_ID ]")
         textField1.text = ""
         button1.enabled = true
         console.log("Button Pressed. Entered text: " + textField1.text);

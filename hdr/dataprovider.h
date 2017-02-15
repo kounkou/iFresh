@@ -63,7 +63,7 @@ public:
     explicit DataProvider(QObject *parent = 0);
    ~DataProvider();
 
-    Q_INVOKABLE void getPollutionInfos(const QString);
+    Q_INVOKABLE void getPollutionInfos(const QUrl&);
 
     int indicePM25() const;
     int indicePM10() const;
@@ -80,6 +80,8 @@ public:
     void setIndiceSo2(int);
     void setIndiceCo(int);
     void setCity(const QString);
+
+    void setNetworkManager(QNetworkAccessManager*);
 
 signals:
     void indicePM25Changed();
