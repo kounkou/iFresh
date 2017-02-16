@@ -81,8 +81,6 @@ public:
     void setIndiceCo(int);
     void setCity(const QString);
 
-    void setNetworkManager(QNetworkAccessManager*);
-
 signals:
     void indicePM25Changed();
     void indicePM10Changed();

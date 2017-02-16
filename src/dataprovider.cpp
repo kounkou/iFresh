@@ -65,11 +65,6 @@ DataProvider::DataProvider(QObject* parent)
     QObject::connect(m_networkManager, SIGNAL(finished(QNetworkReply*)), this, SLOT(onResult(QNetworkReply*)));
 }
 
-void DataProvider::setNetworkManager(QNetworkAccessManager* nAccessMngr)
-{
-    m_networkManager = nAccessMngr;
-}
-
 DataProvider::~DataProvider()
 {
     if (m_networkManager != NULL)
@@ -84,6 +79,7 @@ DataProvider::~DataProvider()
 void DataProvider::getPollutionInfos(const QUrl& url)
 {
     qDebug() << "sending request";
+
     QNetworkRequest request(url);
     m_networkManager->get(request);
 }
