@@ -19,3 +19,4 @@ iFresh is made with the following Technologies :
 - Json for getting data
 - QML for declarative part of the aplication
 - C++ for the backend
+- Google unit tests for the Unitary testing :-)
