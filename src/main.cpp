@@ -39,7 +39,7 @@
 ****************************************************************************/
 
 
-// #define  TEST
+#define  TEST
 #ifndef  TEST
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
