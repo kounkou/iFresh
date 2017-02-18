@@ -6,7 +6,7 @@ os      : linux
 
 before_install:
 - echo $LANG
-- chmod +x ./scripts/dependencies ./scripts/build.sh
+- chmod +x ./scripts/dependencies.sh ./scripts/build.sh
 - if [ $TRAVIS_OS_NAME == linux ]; then ./scripts/dependencies.sh; fi
 before_script:
 - if [ $TRAVIS_OS_NAME == linux ]; then ./scripts/build.sh; fi
