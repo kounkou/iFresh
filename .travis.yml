@@ -8,12 +8,16 @@ os      : linux
 services:
 - docker
 
+env:
+- QT_VERSION=qt:5.7.0
+
 before_install:
 - echo $LANG
 - chmod +x ./scripts/dependencies.sh ./scripts/build.sh
-- if [ $TRAVIS_OS_NAME == linux ]; then ./scripts/dependencies.sh; fi
+# - if [ $TRAVIS_OS_NAME == linux ]; then ./scripts/dependencies.sh; fi
 before_script:
-- if [ $TRAVIS_OS_NAME == linux ]; then ./scripts/build.sh; fi
+- docker_exec.sh "qmake -spec linux-g++ CONFIG+=debug CONFIG+=qml_debug -o Makefile ../iFresh/iFresh.pro && make && ./iFresh"
+# - if [ $TRAVIS_OS_NAME == linux ]; then ./scripts/build.sh; fi
 after_success:
 branches:
   only:
@@ -23,4 +27,3 @@ notifications:
 env:
   global:
   - LANG="en_US.UTF-8"
-  - QT_VERSION=qt:5.7.0
