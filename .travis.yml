@@ -14,7 +14,7 @@ env:
 before_install:
 - echo $LANG
 - chmod +x ./scripts/dependencies.sh ./scripts/build.sh ./scripts/docker_exec.sh
-- if [ $TRAVIS_OS_NAME == linux ]; then ./scripts/dependencies.sh; fi
+# - if [ $TRAVIS_OS_NAME == linux ]; then ./scripts/dependencies.sh; fi
 before_script:
 - if [ $TRAVIS_OS_NAME == linux ]; then ./scripts/docker_exec.sh "./scripts/build.sh"; fi
 after_success:
