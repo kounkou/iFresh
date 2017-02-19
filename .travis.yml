@@ -1,6 +1,6 @@
 language: cpp
 sudo    : required
-dist    : precise
+dist    : xenial
 group   : stable 
 compiler: gcc
 os      : linux
