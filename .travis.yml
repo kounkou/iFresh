@@ -8,13 +8,13 @@ os      : linux
 matrix:
   include:
     - compiler: gcc
-       addons:
-         apt:
-           sources:
-             - ubuntu-toolchain-r-test
-           packages:
-             - g++-5
-       env: COMPILER=g++-5
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - g++-5
+      env: COMPILER=g++-5
 
 before_install:
 - echo $LANG
