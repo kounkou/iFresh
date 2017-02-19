@@ -24,9 +24,7 @@ script:
 - sudo cp *.a /usr/lib
 - cd ${current_dir}
 - echo ${current_dir}
-- qmake -spec linux-g++ CONFIG+=debug CONFIG+=qml_debug -o Makefile ../iFresh/iFresh.pro
-- make
-- ./iFresh
+- ./scripts/docker_exec.sh "./scripts/build.sh"
 
 before_install:
 - echo $LANG
