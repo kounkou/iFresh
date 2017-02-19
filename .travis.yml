@@ -15,18 +15,24 @@ install:
 - sudo apt-get install libgtest-dev
 
 script:
-- mkdir _builds
-- cd _builds
-- cmake ..
+- current_dir=$PWD
+- echo ${current_dir}
+- cd /usr/src/gtest
+- sudo make CMakeLists.txt
+- sudo make
+- sudo cp *.a /usr/lib
+- cd ${current_dir}
+- echo ${current_dir}
+- qmake -spec linux-g++ CONFIG+=debug CONFIG+=qml_debug -o Makefile ../iFresh/iFresh.pro
 - make
-- ctest
+- ./iFresh
 
 before_install:
 - echo $LANG
 - chmod +x ./scripts/dependencies.sh ./scripts/build.sh ./scripts/docker_exec.sh
 # - if [ $TRAVIS_OS_NAME == linux ]; then ./scripts/dependencies.sh; fi
 before_script:
-- if [ $TRAVIS_OS_NAME == linux ]; then ./scripts/docker_exec.sh "./scripts/build.sh"; fi
+# - if [ $TRAVIS_OS_NAME == linux ]; then ./scripts/docker_exec.sh "./scripts/build.sh"; fi
 after_success:
 branches:
   only:
