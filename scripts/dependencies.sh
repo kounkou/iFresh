@@ -5,20 +5,19 @@ current_dir=$PWD
 
 # install qt
 sudo apt-get -qq upgrade
-sudo add-apt-repository ppa:beineri/opt-qt571-trusty -y
 # For Qt 5.x
-# sudo apt-get install -y qt5-qmake \
-#                        qt5-default \
-#                        qdbus-qt5 \
-#                        qtquick1-5-dev \
-#                        qtscript5-dev \
-#                        qtbase5-dev \
-#                        qtdeclarative5-dev \
-#                        libqt5webkit5-dev \
-#                        libsqlite3-dev \
-#                        qttools5-dev-tools \
-#                        libcanberra-gtk-module \
-#                        libqt5svg5*
+sudo apt-get install -y qt5-qmake \
+                        qt5-default \
+                        qdbus-qt5 \
+                        qtquick1-5-dev \
+                        qtscript5-dev \
+                        qtbase5-dev \
+                        qtdeclarative5-dev \
+                        libqt5webkit5-dev \
+                        libsqlite3-dev \
+                        qttools5-dev-tools \
+                        libcanberra-gtk-module \
+                        libqt5svg5*
 
 # install gtest
 sudo apt-get install libgtest-dev
