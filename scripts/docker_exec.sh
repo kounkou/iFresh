@@ -7,17 +7,6 @@ cat > ${ENTRY_POINT} << EOF
 #!/bin/bash
 echo "Preparing image with $QT_VERSION"
 apt update &> /tmp/log && apt install sudo xvfb -y  &> /tmp/log
-
-current_dir=$PWD
-sudo apt-get update -qq
-sudo apt-get install --yes cmake
-sudo apt-get install --yes libgtest-dev
-/bin/su $USER -c "cd /usr/src/gtest"
-sudo cmake CMakeLists.txt
-sudo make
-sudo cp *.a /usr/lib
-/bin/su $USER -c "cd ${current_dir}"
-
 groupadd -g $(getent group $USER | cut -d: -f3) $USER
 useradd -g $USER -G sudo -N -u $UID $USER
 echo "$USER ALL=(ALL:ALL) NOPASSWD: ALL" >> /etc/sudoers

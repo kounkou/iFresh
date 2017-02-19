@@ -10,11 +10,11 @@ current_dir=$PWD
 
 # install gtest
 sudo apt-get install --yes cmake
-sudo apt-get install --yes libgtest-dev
-sudo cd /usr/src/gtest
-sudo cmake CMakeLists.txt
-sudo make
-sudo cp *.a /usr/lib
+# sudo apt-get install --yes libgtest-dev
+# sudo cd /usr/src/gtest
+# sudo cmake CMakeLists.txt
+# sudo make
+# sudo cp *.a /usr/lib
 
 
 # restore the current dir

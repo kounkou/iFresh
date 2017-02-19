@@ -11,6 +11,16 @@ services:
 env:
 - QT_VERSION=qt:5.7.0
 
+install:
+- sudo apt-get install libgtest-dev
+
+script:
+- mkdir _builds
+- cd _builds
+- cmake ..
+- make
+- ctest
+
 before_install:
 - echo $LANG
 - chmod +x ./scripts/dependencies.sh ./scripts/build.sh ./scripts/docker_exec.sh
