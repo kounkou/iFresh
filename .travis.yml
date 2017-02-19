@@ -8,6 +8,11 @@ before_install:
 - echo $LANG
 - chmod +x ./scripts/dependencies.sh ./scripts/build.sh
 - if [ $TRAVIS_OS_NAME == linux ]; then ./scripts/dependencies.sh; fi
+- if [ "$QT_BASE" = "57" ]; then
+     if [ "$TRAVIS_OS_NAME" = "linux" ]; then 
+        sudo apt-get install -qq qt57base; source /opt/qt57/bin/qt57-env.sh; 
+     fi
+  fi
 before_script:
 - if [ $TRAVIS_OS_NAME == linux ]; then ./scripts/build.sh; fi
 after_success:
@@ -18,5 +23,6 @@ notifications:
   email: false
 env:
   global:
+  - QT_BASE=57
   - LANG="en_US.UTF-8"
 
