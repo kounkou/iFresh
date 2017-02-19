@@ -1,15 +1,13 @@
 language: cpp
 sudo    : required
-dist    : Trusty 
+dist    : precise
+group   : stable 
 compiler: gcc
 os      : linux
 
 before_install:
 - echo $LANG
 - chmod +x ./scripts/dependencies.sh ./scripts/build.sh
-- sudo sh -c "echo 'deb http://llvm.org/apt/precise/ llvm-toolchain-precise-3.6-binaries main' >> /etc/apt/sources.list"
-- sudo sh -c "echo 'deb http://llvm.org/apt/precise/ llvm-toolchain-precise main' >> /etc/apt/sources.list"
-- wget -O - http://llvm.org/apt/llvm-snapshot.gpg.key | sudo apt-key add -
 - if [ $TRAVIS_OS_NAME == linux ]; then ./scripts/dependencies.sh; fi
 before_script:
 - if [ $TRAVIS_OS_NAME == linux ]; then ./scripts/build.sh; fi
@@ -21,6 +19,4 @@ notifications:
   email: false
 env:
   global:
-  - QT_BASE=57
   - LANG="en_US.UTF-8"
-

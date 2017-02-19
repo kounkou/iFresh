@@ -5,6 +5,8 @@ current_dir=$PWD
 
 # install qt
 sudo apt-get -qq upgrade
+sudo add-apt-repository --yes ppa:ubuntu-toolchain-r/test
+sudo apt-get install -qq g++-5
 # For Qt 5.x
 sudo apt-get install -y qt5-qmake \
                         qt5-default \
