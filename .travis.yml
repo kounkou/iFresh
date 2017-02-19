@@ -1,6 +1,6 @@
 language: cpp
 sudo    : required
-dist    : Xenial
+dist    : Ubuntu 16.04
 compiler: gcc
 os      : linux
 
