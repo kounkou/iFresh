@@ -28,6 +28,4 @@ install:
 - sudo apt-get install -qq qt${QT_BASE}base qt${QT_BASE}script; source /opt/qt${QT_BASE}/bin/qt${QT_BASE}-env.sh
 
 script:
-- qmake -r "QMAKE_CXX=$CXX" "QMAKE_CC=$CC"
-- make check
 
