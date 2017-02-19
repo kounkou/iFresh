@@ -5,16 +5,8 @@ group   : stable
 compiler: gcc
 os      : linux
 
-matrix:
-  include:
-    - compiler: gcc
-      addons:
-        apt:
-          sources:
-            - ubuntu-toolchain-r-test
-          packages:
-            - g++-5
-      env: COMPILER=g++-5
+services:
+- docker
 
 before_install:
 - echo $LANG
@@ -30,5 +22,5 @@ notifications:
   email: false
 env:
   global:
-  - COMPILER=g++-4.9
   - LANG="en_US.UTF-8"
+  - QT_VERSION=qt:5.7.0
