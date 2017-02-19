@@ -30,4 +30,5 @@ notifications:
   email: false
 env:
   global:
+  - COMPILER=g++-4.9
   - LANG="en_US.UTF-8"
