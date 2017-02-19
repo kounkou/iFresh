@@ -12,7 +12,7 @@ current_dir=$PWD
 sudo apt-get install --yes libgtest-dev
 sudo apt-get install --yes cmake
 
-cd /usr/src/gtest
+sudo cd /usr/src/gtest
 sudo cmake CMakeLists.txt
 sudo make
 sudo cp *.a /usr/lib
