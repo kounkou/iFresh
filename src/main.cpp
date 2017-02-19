@@ -61,7 +61,7 @@ int main(int argc, char *argv[])
     return app.exec();
 }
 #else
-#include <gtest/gtest.h>
+#include "gtest/gtest.h"
 
 int main(int argc, char *argv[])
 {
