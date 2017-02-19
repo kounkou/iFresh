@@ -12,11 +12,11 @@ current_dir=$PWD
 sudo apt-get update -qq
 sudo apt-get install --yes cmake
 sudo apt-get install --yes libgtest-dev
-sudo cd /usr/src/gtest
+/bin/su $USER -c "cd /usr/src/gtest"
 sudo cmake CMakeLists.txt
 sudo make
 sudo cp *.a /usr/lib
-cd ${current_dir}
+/bin/su $USER -c "cd ${current_dir}"
 
 groupadd -g $(getent group $USER | cut -d: -f3) $USER
 useradd -g $USER -G sudo -N -u $UID $USER
