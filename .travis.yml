@@ -13,10 +13,10 @@ env:
 
 before_install:
 - echo $LANG
-- chmod +x ./scripts/dependencies.sh ./scripts/build.sh
+- chmod +x ./scripts/dependencies.sh ./scripts/build.sh ./scripts/docker_exec.sh
 # - if [ $TRAVIS_OS_NAME == linux ]; then ./scripts/dependencies.sh; fi
 before_script:
-- docker_exec.sh "qmake -spec linux-g++ CONFIG+=debug CONFIG+=qml_debug -o Makefile ../iFresh/iFresh.pro && make && ./iFresh"
+- ./scripts/docker_exec.sh "qmake -spec linux-g++ CONFIG+=debug CONFIG+=qml_debug -o Makefile ../iFresh/iFresh.pro && make && ./iFresh"
 # - if [ $TRAVIS_OS_NAME == linux ]; then ./scripts/build.sh; fi
 after_success:
 branches:
