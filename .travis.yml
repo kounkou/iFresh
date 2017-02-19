@@ -18,7 +18,8 @@ script:
 - current_dir=$PWD
 - echo ${current_dir}
 - cd /usr/src/gtest
-- sudo make CMakeLists.txt
+- ls -al
+- sudo cmake CMakeLists.txt
 - sudo make
 - sudo cp *.a /usr/lib
 - cd ${current_dir}
