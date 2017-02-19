@@ -39,7 +39,7 @@
 ****************************************************************************/
 
 
-// #define  TEST
+#define  TEST
 #ifndef  TEST
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
@@ -61,7 +61,7 @@ int main(int argc, char *argv[])
     return app.exec();
 }
 #else
-#include <gtest/gtest.h>
+#include "gtest/gtest.h"
 
 int main(int argc, char *argv[])
 {
