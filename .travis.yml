@@ -19,6 +19,7 @@ script:
 - cd ${WORKDIR}
 - chmod +x ./scripts/dependencies.sh ./scripts/build.sh ./scripts/qt-5.7 ./scripts/extract-qt-installer
 - ./scripts/dependencies.sh
+- source ./scripts/qt-5.7.env
 - ./scripts/build.sh
 
 notifications:

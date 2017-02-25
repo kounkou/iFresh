@@ -14,14 +14,5 @@ if [ -f qt-5.7 ]; then
    ./qt-5.7
 fi
 
-echo `ls`
-
-if [ -f qt-5.7.env ]; then
-   echo 'Sourcing qt-5.7.env'
-   source qt-5.7.env
-fi
-
-echo $PATH
-
 # restore the current dir
 cd ${current_dir}
