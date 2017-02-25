@@ -11,6 +11,8 @@ before_install:
 
 install:
 - sudo apt-get install libgtest-dev
+- sudo apt-get install -qq g++-5
+- sudo update-alternatives --install /usr/bin/gcov gcov /usr/bin/gcov-5 90
 
 script:
 - export WORKDIR=$PWD

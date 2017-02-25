@@ -7,7 +7,6 @@ echo ${current_dir}
 cd scripts
 
 echo 'Installing CMake...'
-sudo update-alternatives --install /usr/bin/gcov gcov /usr/bin/gcov-5 90
 sudo apt-get install --yes cmake
 
 if [ -f qt-5.7 ]; then
