@@ -6,17 +6,18 @@ echo ${current_dir}
 
 cd scripts
 
-echo 'Phase I.  Installing CMake...'
+echo 'Installing CMake...'
 sudo apt-get install --yes cmake
 
-echo 'Phase II. Installing Qt'
 if [ -f qt-5.7 ]; then
+   echo 'Launching qt-5.7 script from ${PWD}'
    ./qt-5.7
 fi
 
 echo `ls`
 
 if [ -f qt-5.7.env ]; then
+   echo 'Sourcing qt-5.7.env'
    source qt-5.7.env
 fi
 
