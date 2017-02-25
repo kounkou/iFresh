@@ -10,9 +10,9 @@ then
 fi
 
 echo Installing Qt
-./extract-qt-installer $PWD/$INSTALLER $PWD/Qt
+# ./extract-qt-installer $PWD/$INSTALLER $PWD/Qt
 
-echo Create $ENVFILE
+echo Create $ENVFILE in $PWD
 cat << EOF > $ENVFILE
 export PATH=$PWD/Qt/5.7/gcc_64/bin:$PATH
 EOF
