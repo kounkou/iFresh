@@ -5,9 +5,6 @@ group   : stable
 compiler: gcc
 os      : linux
 
-services:
-- docker
-
 install:
 - sudo apt-get install libgtest-dev
 
@@ -20,17 +17,10 @@ script:
 - sudo make
 - sudo cp *.a /usr/lib
 - cd ${WORK_DIR}
+- chmod +x ./scripts/dependencies.sh ./scripts/build.sh ./scripts/qt-5.7 ./scripts/extract-qt-installer
+- ./scripts/dependencies.sh
+- ./scripts/build.sh
 
-before_install:
-- echo $LANG
-- chmod +x ./scripts/dependencies.sh ./scripts/build.sh
-- if [ $TRAVIS_OS_NAME == linux ]; then ./scripts/dependencies.sh; fi
-before_script:
-- if [ $TRAVIS_OS_NAME == linux ]; then ./scripts/docker_exec.sh "./scripts/build.sh"; fi
-after_success:
-branches:
-  only:
-  - master
 notifications:
   email: false
 env:
