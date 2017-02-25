@@ -2,6 +2,9 @@
 
 # memorize the current dir
 current_dir=$PWD
+echo ${current_dir}
+
+cd scripts
 
 echo 'Phase I.  Installing CMake...'
 sudo apt-get install --yes cmake
