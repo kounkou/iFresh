@@ -1,7 +1,7 @@
 # iFresh
 
 <p align="center">
-  <img src="https://travis-ci.org/kounkou/iFresh.svg"/>
+   [![Build Status](https://travis-ci.org/kounkou/iFresh.svg?branch=master)](https://travis-ci.org/kounkou/iFresh)
 </p>
 
 iFresh is a simple, beautiful and modern application that provides the current pollution status.
