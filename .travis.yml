@@ -5,37 +5,23 @@ group   : stable
 compiler: gcc
 os      : linux
 
-services:
-- docker
-
-env:
-- QT_VERSION=qt:5.7.0
-
 install:
 - sudo apt-get install libgtest-dev
 
 script:
-- current_dir=$PWD
-- echo ${current_dir}
+- export WORKDIR=$PWD
+- echo $PWD
 - cd /usr/src/gtest
 - ls -al
 - sudo cmake CMakeLists.txt
 - sudo make
 - sudo cp *.a /usr/lib
-- cd ${current_dir}
-- echo ${current_dir}
-- ./scripts/docker_exec.sh "./scripts/build.sh"
+- cd ${WORKDIR}
+- chmod +x ./scripts/dependencies.sh ./scripts/build.sh ./scripts/qt-5.7 ./scripts/extract-qt-installer
+- ./scripts/dependencies.sh
+- source ./scripts/qt-5.7.env
+- ./scripts/build.sh
 
-before_install:
-- echo $LANG
-- chmod +x ./scripts/dependencies.sh ./scripts/build.sh ./scripts/docker_exec.sh
-# - if [ $TRAVIS_OS_NAME == linux ]; then ./scripts/dependencies.sh; fi
-before_script:
-# - if [ $TRAVIS_OS_NAME == linux ]; then ./scripts/docker_exec.sh "./scripts/build.sh"; fi
-after_success:
-branches:
-  only:
-  - master
 notifications:
   email: false
 env:
