@@ -1,6 +1,7 @@
 # iFresh
 
 [![Build Status](https://travis-ci.org/kounkou/iFresh.svg?branch=master)](https://travis-ci.org/kounkou/iFresh)
+[![codecov.io](https://codecov.io/github/kounkou/iFresh/coverage.svg?branch=master)](https://codecov.io/github/kounkou/iFresh?branch=master)
 
 iFresh is a simple, beautiful and modern application that provides the current pollution status.
 The current pollution status is obtained from Air Quality Information (AQI) servers.

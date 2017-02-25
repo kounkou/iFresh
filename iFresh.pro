@@ -15,7 +15,9 @@ QML_IMPORT_PATH =
 INCLUDEPATH += hdr/
 
 INCLUDEPATH += /usr/include/
-LIBS += -lgtest -L/usr/lib/
+LIBS += -lgtest -L/usr/lib/ -lgcov
+
+QMAKE_CXXFLAGS += -fprofile-arcs -ftest-coverage
 
 # Additional import path used to resolve QML modules just for Qt Quick Designer
 QML_DESIGNER_IMPORT_PATH =
