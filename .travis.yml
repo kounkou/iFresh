@@ -8,9 +8,6 @@ os      : linux
 services:
 - docker
 
-env:
-- QT_VERSION=qt:5.7.0
-
 install:
 - sudo apt-get install libgtest-dev
 
@@ -23,25 +20,13 @@ script:
 - sudo make
 - sudo cp *.a /usr/lib
 - cd ${WORK_DIR}
-# - ./scripts/docker_exec.sh "./scripts/build.sh"
-- source path.env
-- qt-5.5.1-android-19
-- cat qt-5.5.1-android-19.env
-- source qt-5.5.1-android-19.env
-- which qmake
-# - git clone https://github.com/benlau/quickandroid.git
-# - cd quickandroid/examples/quickandroidexample
-- qmake
-- make install INSTALL_ROOT=$WORKDIR/build
-- echo $PWD
-# - androiddeployqt --output $WORKDIR/build
 
 before_install:
 - echo $LANG
-- chmod +x ./scripts/dependencies.sh ./scripts/build.sh ./scripts/docker_exec.sh
-# - if [ $TRAVIS_OS_NAME == linux ]; then ./scripts/dependencies.sh; fi
+- chmod +x ./scripts/dependencies.sh ./scripts/build.sh ./scripts/docker_exec.sh extract-qt-installer
+- if [ $TRAVIS_OS_NAME == linux ]; then ./scripts/dependencies.sh; fi
 before_script:
-# - if [ $TRAVIS_OS_NAME == linux ]; then ./scripts/docker_exec.sh "./scripts/build.sh"; fi
+- if [ $TRAVIS_OS_NAME == linux ]; then ./scripts/docker_exec.sh "./scripts/build.sh"; fi
 after_success:
 branches:
   only:
