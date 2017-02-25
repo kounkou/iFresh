@@ -16,7 +16,7 @@ script:
 - sudo cmake CMakeLists.txt
 - sudo make
 - sudo cp *.a /usr/lib
-- cd ${WORK_DIR}
+- cd ${WORKDIR}
 - chmod +x ./scripts/dependencies.sh ./scripts/build.sh ./scripts/qt-5.7 ./scripts/extract-qt-installer
 - ./scripts/dependencies.sh
 - ./scripts/build.sh
