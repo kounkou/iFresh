@@ -15,16 +15,26 @@ install:
 - sudo apt-get install libgtest-dev
 
 script:
-- current_dir=$PWD
-- echo ${current_dir}
+- export WORKDIR=$PWD
+- echo $PWD
 - cd /usr/src/gtest
 - ls -al
 - sudo cmake CMakeLists.txt
 - sudo make
 - sudo cp *.a /usr/lib
-- cd ${current_dir}
-- echo ${current_dir}
-- ./scripts/docker_exec.sh "./scripts/build.sh"
+- cd ${WORK_DIR}
+# - ./scripts/docker_exec.sh "./scripts/build.sh"
+- source path.env
+- qt-5.5.1-android-19
+- cat qt-5.5.1-android-19.env
+- source qt-5.5.1-android-19.env
+- which qmake
+# - git clone https://github.com/benlau/quickandroid.git
+# - cd quickandroid/examples/quickandroidexample
+- qmake
+- make install INSTALL_ROOT=$WORKDIR/build
+- echo $PWD
+# - androiddeployqt --output $WORKDIR/build
 
 before_install:
 - echo $LANG
