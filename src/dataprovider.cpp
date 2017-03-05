@@ -76,12 +76,14 @@ DataProvider::~DataProvider()
  * getPollutionInfos now take a url of the request
  * and perform a get
  */
-void DataProvider::getPollutionInfos(const QUrl& url)
+bool DataProvider::getPollutionInfos(const QUrl& url)
 {
     qDebug() << "sending request";
 
     QNetworkRequest request(url);
     m_networkManager->get(request);
+
+    return true;
 }
 
 /*
