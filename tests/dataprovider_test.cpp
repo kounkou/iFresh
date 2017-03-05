@@ -37,13 +37,9 @@ TEST_F(DataProvider_Test, indiceSo2)  { EXPECT_EQ(0,  dataProvider->indiceSo2())
 TEST_F(DataProvider_Test, indiceCo)   { EXPECT_EQ(0,  dataProvider->indiceCo());   }
 TEST_F(DataProvider_Test, city)       { EXPECT_EQ("Paris", dataProvider->city());  }
 
-TEST_F(DataProvider_Test, onResult)
+TEST_F(DataProvider_Test, getPollutionInfos)
 {
-   QNetworkRequest       request(QUrl("http://127.0.0.1:1500"));
-   QNetworkAccessManager nam;
-   QNetworkReply*        result = nam.get(request);
-
-   EXPECT_EQ(true, dataProvider->onResult(result));
+   EXPECT_EQ(true, dataProvider->getPollutionInfos(QUrl("http://127.0.0.1:1500")));
 }
 
 TEST_F(DataProvider_Test, canSetIndicePM25) { dataProvider->setIndicePM25(25); EXPECT_EQ(25, dataProvider->indicePM25()); }
