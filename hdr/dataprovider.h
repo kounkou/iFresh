@@ -63,7 +63,7 @@ public:
     explicit DataProvider(QObject *parent = 0);
    ~DataProvider();
 
-    Q_INVOKABLE void getPollutionInfos(const QUrl&);
+    Q_INVOKABLE bool getPollutionInfos(const QUrl&);
 
     int indicePM25() const;
     int indicePM10() const;
