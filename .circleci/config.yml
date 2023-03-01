@@ -23,18 +23,18 @@ jobs:
 workflows:
   build-iFresh-workflow:
     jobs:
-      - export WORKDIR=$PWD
-      - echo $PWD
-      - cd /usr/src/gtest
-      - ls -al
-      - sudo cmake CMakeLists.txt
-      - sudo make
-      - sudo cp *.a /usr/lib
-      - cd ${WORKDIR}
+#       - export WORKDIR=$PWD
+#       - echo $PWD
+#       - cd /usr/src/gtest
+#       - ls -al
+#       - sudo cmake CMakeLists.txt
+#       - sudo make
+#       - sudo cp *.a /usr/lib
+#       - cd ${WORKDIR}
       - chmod +x ./scripts/dependencies.sh ./scripts/build.sh ./scripts/qt-5.7 ./scripts/extract-qt-installer ./scripts/get_code_cov.sh ./scripts/webserver.sh
       - ./scripts/webserver.sh &
       - ./scripts/dependencies.sh
       - source ./scripts/qt-5.7.env
       - ./scripts/build.sh
-      - ./scripts/get_code_cov.sh
-      - bash <(curl -s https://codecov.io/bash)
+#       - ./scripts/get_code_cov.sh
+#       - bash <(curl -s https://codecov.io/bash)
