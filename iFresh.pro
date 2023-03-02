@@ -14,7 +14,7 @@ QML_IMPORT_PATH =
 
 INCLUDEPATH += hdr/
 
-INCLUDEPATH += /usr/include/
+# INCLUDEPATH += /usr/include/
 LIBS += -lgtest -L/usr/lib/ -lgcov
 
 QMAKE_CXXFLAGS += -fprofile-arcs -ftest-coverage
