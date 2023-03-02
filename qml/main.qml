@@ -41,9 +41,6 @@
 import QtQuick.Controls 2.0
 import QtQuick.Layouts 1.0
 import QtQuick 2.7
-import QtPositioning 5.5
-import QtLocation 5.6
-import QtWebView 1.0
 import QtQuick.Controls.Material 2.0
 import panorama.Aqicn.DataProvider 1.0
 
@@ -63,7 +60,7 @@ ApplicationWindow {
             id: dataProvider
         }
 
-        Page1 {
+        Home {
         }
 
         /*

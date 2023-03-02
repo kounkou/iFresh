@@ -130,16 +130,14 @@ Item {
         anchors.horizontalCenter: parent.horizontalCenter
     }
 
-    RowLayout
-    {
+    RowLayout {
         id: othersIndices
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.top: imageIndice.bottom
         anchors.topMargin: 20
         spacing: 10
 
-        RowLayout
-        {
+        RowLayout {
             Rectangle {
                 id: pm10Rec
                 height: 60
@@ -163,9 +161,7 @@ Item {
                     color: "white"
                 }
             }
-        }
-        RowLayout
-        {
+        } RowLayout {
             Rectangle {
                 id: o3Rec
                 height: 60
@@ -189,9 +185,7 @@ Item {
                     color: "white"
                 }
             }
-        }
-        RowLayout
-        {
+        } RowLayout {
             Rectangle {
                 id: no2Rec
                 height: 60
@@ -215,9 +209,7 @@ Item {
                     color: "white"
                 }
             }
-        }
-        RowLayout
-        {
+        } RowLayout {
             Rectangle {
                 id: so2Rec
                 height: 60
@@ -241,9 +233,7 @@ Item {
                     color: "white"
                 }
             }
-        }
-        RowLayout
-        {
+        } RowLayout {
             Rectangle {
                 id: coRec
                 height: 60
@@ -268,10 +258,7 @@ Item {
                 }
             }
         }
-    }
-
-    RowLayout
-    {
+    } RowLayout {
         anchors.top: othersIndices.bottom
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.topMargin: 40
