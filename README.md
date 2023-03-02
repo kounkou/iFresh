@@ -1,6 +1,6 @@
 # iFresh
 
-[![Build Status](https://travis-ci.org/kounkou/iFresh.svg?branch=master)](https://travis-ci.org/kounkou/iFresh)
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/kounkou/iFresh/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/kounkou/iFresh/tree/master)
 [![codecov.io](https://codecov.io/github/kounkou/iFresh/coverage.svg?branch=master)](https://codecov.io/github/kounkou/iFresh?branch=master)
 [![Issue Count](https://codeclimate.com/github/kounkou/iFresh/badges/issue_count.svg)](https://codeclimate.com/github/kounkou/iFresh)
 
