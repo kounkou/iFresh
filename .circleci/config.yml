@@ -17,14 +17,14 @@ jobs:
       - run:
           name: "build iFresh"
           command: |
-            sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test && \\
-            sudo apt-get update -qq && sudo apt-get install libgtest-dev && sudo apt-get install -qq g++-5 && \\
-            sudo update-alternatives --install /usr/bin/gcov gcov /usr/bin/gcov-5 90 && export WORKDIR=$PWD && \\
-            echo $PWD&& cd /usr/src/gtest&& ls -al && sudo cmake CMakeLists.txt && sudo make && \\
-            sudo cp *.a /usr/lib && cd ${WORKDIR} \\
-            && chmod +x ./scripts/dependencies.sh ./scripts/build.sh ./scripts/qt-5.7 ./scripts/extract-qt-installer ./scripts/get_code_cov.sh ./scripts/webserver.sh \\
-            && (./scripts/webserver.sh &) && ./scripts/dependencies.sh && source ./scripts/qt-5.7.env && ./scripts/build.sh && \\
-            ./scripts/get_code_cov.sh; bash <(curl -s https://codecov.io/bash)"
+            sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test && \
+            sudo apt-get update -qq && sudo apt-get install libgtest-dev && sudo apt-get install -qq g++-5 && \
+            sudo update-alternatives --install /usr/bin/gcov gcov /usr/bin/gcov-5 90 && export WORKDIR=$PWD && \
+            echo $PWD&& cd /usr/src/gtest&& ls -al && sudo cmake CMakeLists.txt && sudo make && \
+            sudo cp *.a /usr/lib && cd ${WORKDIR} \
+            && chmod +x ./scripts/dependencies.sh ./scripts/build.sh ./scripts/qt-5.7 ./scripts/extract-qt-installer ./scripts/get_code_cov.sh ./scripts/webserver.sh \
+            && (./scripts/webserver.sh &) && ./scripts/dependencies.sh && source ./scripts/qt-5.7.env && ./scripts/build.sh && \
+            ./scripts/get_code_cov.sh; bash <(curl -s https://codecov.io/bash)
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
