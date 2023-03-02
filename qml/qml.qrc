@@ -1,8 +1,8 @@
 <RCC>
     <qresource prefix="/">
         <file alias="main.qml">main.qml</file>
-        <file alias="Page1.qml">Page1.qml</file>
-        <file alias="Page1Form.ui.qml">Page1Form.ui.qml</file>
+        <file alias="Home.qml">Home.qml</file>
+        <file alias="HomeForm.ui.qml">HomeForm.ui.qml</file>
         <file alias="qtquickcontrols2.conf">../conf/qtquickcontrols2.conf</file>
         <file alias="marker.png">../images/marker.png</file>
         <file alias="Ecology-1.svg">../images/Ecology-1.svg</file>
