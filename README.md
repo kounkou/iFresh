@@ -1,8 +1,6 @@
 # iFresh
 
 [![CircleCI](https://dl.circleci.com/status-badge/img/gh/kounkou/iFresh/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/kounkou/iFresh/tree/master)
-[![codecov.io](https://codecov.io/github/kounkou/iFresh/coverage.svg?branch=master)](https://codecov.io/github/kounkou/iFresh?branch=master)
-[![Issue Count](https://codeclimate.com/github/kounkou/iFresh/badges/issue_count.svg)](https://codeclimate.com/github/kounkou/iFresh)
 
 iFresh is a simple, beautiful and modern application that provides the current pollution status.
 The current pollution status is obtained from Air Quality Information (AQI) servers.
